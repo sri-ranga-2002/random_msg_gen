@@ -27,7 +27,9 @@ def index():
 def get_random_message_route():
     # Get a random message
     message = get_random_message()
-    return message
+    alert_message = "Krishna: " + message
+    
+    return alert_message
 
 if __name__ == "__main__":
     app.run(debug=True)
