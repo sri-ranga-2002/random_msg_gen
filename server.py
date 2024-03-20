@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, send_file
 import random
 from openpyxl import load_workbook
 
@@ -17,6 +17,11 @@ def get_random_message():
     # Get the message from the selected row
     message = ws.cell(row=random_row, column=1).value
     return message
+
+@app.route("/")
+def index():
+    # Send the HTML file when the root URL is requested
+    return send_file("index.html")
 
 @app.route("/get_random_message")
 def get_random_message_route():
